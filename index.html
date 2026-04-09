@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Студия коррекции фигуры «Мне Красиво» в Саранске — аппаратный массаж, LPG, лазерная эпиляция, RF-лифтинг, косметология, брови и ресницы.">
+  <title>Мне Красиво — Студия коррекции фигуры · Саранск</title>
+
+  <!-- Google Fonts: must be in <head> before CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PRELOADER
+══════════════════════════════════════════ -->
+<div id="preloader">
+  <div class="pl-wrap">
+    <img src="images/logo-white.png" class="pl-logo" alt="Мне Красиво">
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header class="header" id="header">
+  <div class="header-inner">
+
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#top" class="header-logo" aria-label="Мне Красиво — на главную">
+      <img src="images/logo-white-crop.png" alt="Мне Красиво" class="header-logo-img">
+    </a>
+
+    <a href="#contacts" class="header-book">Записаться</a>
+
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     FULLSCREEN MENU OVERLAY
+══════════════════════════════════════════ -->
+<div id="fm">
+
+  <!-- 1. Шапка -->
+  <div id="fm-bar">
+    <button id="fm-close" aria-label="Закрыть">&#x2715;</button>
+    <span id="fm-mk">МК</span>
+    <span></span>
+  </div>
+
+  <!-- 2. МЕНЮ + соцсети -->
+  <p id="fm-title">МЕНЮ</p>
+  <div id="fm-socials">
+    <a href="#">INSTAGRAM</a>
+    <a href="#">ВКОНТАКТЕ</a>
+  </div>
+
+  <!-- 3. Список услуг -->
+  <ul id="fm-list">
+    <li class="fm-row"><span class="fm-n">001</span><span class="fm-s">АППАРАТНЫЙ МАССАЖ</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">002</span><span class="fm-s">LPG ТЕЛА И ЛИЦА</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">003</span><span class="fm-s">ВИБРАЦИОННАЯ МЕТОДИКА</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">004</span><span class="fm-s">RF-ЛИФТИНГ</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">005</span><span class="fm-s">ЛАЗЕРНАЯ ЭПИЛЯЦИЯ</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">006</span><span class="fm-s">КОСМЕТОЛОГИЯ</span><span class="fm-a">&#x2197;</span></li>
+    <li class="fm-row"><span class="fm-n">007</span><span class="fm-s">БРОВИ И РЕСНИЦЫ</span><span class="fm-a">&#x2197;</span></li>
+  </ul>
+
+  <!-- 4. Низ — два столбца -->
+  <div id="fm-bottom">
+    <div class="fm-col">
+      <a href="#about"    class="fm-bl">/ О НАС</a>
+      <a href="#gallery"  class="fm-bl">/ ГАЛЕРЕЯ</a>
+      <a href="#contacts" class="fm-bl">/ КОНТАКТЫ</a>
+    </div>
+    <div class="fm-col">
+      <strong class="fm-bh">ДЛЯ ЗАПИСИ</strong>
+      <a href="#" class="fm-bl">/ WHATSAPP</a>
+      <a href="tel:+79279782022" class="fm-bl">/ +7 (927) 978-20-22</a>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section class="hero" id="top" aria-label="Главный экран">
+
+  <img class="hero-img" src="images/hero-main.jpg" alt="">
+
+  <h2 class="hero-phrase">красота в каждой детали</h2>
+
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="hero-scroll-text">Прокрутите вниз</span>
+    <svg class="hero-scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+      <path d="M12 5v14M5 13l7 7 7-7"/>
+    </svg>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     MARQUEE
+══════════════════════════════════════════ -->
+<div class="marquee-band" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- repeated twice for seamless loop -->
+    <div class="marquee-item">
+      <span>Студия коррекции фигуры</span><span class="marquee-dot"></span>
+      <span>Мне Красиво</span><span class="marquee-dot"></span>
+      <span>Аппаратный массаж</span><span class="marquee-dot"></span>
+      <span>LPG-массаж</span><span class="marquee-dot"></span>
+      <span>Лазерная эпиляция</span><span class="marquee-dot"></span>
+      <span>RF-лифтинг</span><span class="marquee-dot"></span>
+      <span>Косметология</span><span class="marquee-dot"></span>
+      <span>Брови и ресницы</span><span class="marquee-dot"></span>
+    </div>
+    <div class="marquee-item" aria-hidden="true">
+      <span>Студия коррекции фигуры</span><span class="marquee-dot"></span>
+      <span>Мне Красиво</span><span class="marquee-dot"></span>
+      <span>Аппаратный массаж</span><span class="marquee-dot"></span>
+      <span>LPG-массаж</span><span class="marquee-dot"></span>
+      <span>Лазерная эпиляция</span><span class="marquee-dot"></span>
+      <span>RF-лифтинг</span><span class="marquee-dot"></span>
+      <span>Косметология</span><span class="marquee-dot"></span>
+      <span>Брови и ресницы</span><span class="marquee-dot"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════ -->
+<section class="section services" id="services" aria-labelledby="svc-title">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <span class="label">Что мы предлагаем</span>
+      <h2 class="section-title" id="svc-title">Наши <em>услуги</em></h2>
+    </div>
+
+    <div class="svc-grid">
+
+      <div class="svc-card" style="--card-bg: #3d2a1a">
+        <span class="svc-card-n">001</span>
+        <span class="svc-card-name">Аппаратный массаж</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #2d1f12">
+        <span class="svc-card-n">002</span>
+        <span class="svc-card-name">LPG тела и лица</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #4a3020">
+        <span class="svc-card-n">003</span>
+        <span class="svc-card-name">Вибрационная методика</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #352515">
+        <span class="svc-card-n">004</span>
+        <span class="svc-card-name">RF-лифтинг</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #3a2818">
+        <span class="svc-card-n">005</span>
+        <span class="svc-card-name">Лазерная эпиляция</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #422e1c">
+        <span class="svc-card-n">006</span>
+        <span class="svc-card-name">Косметология</span>
+      </div>
+
+      <div class="svc-card" style="--card-bg: #2e1e0f">
+        <span class="svc-card-n">007</span>
+        <span class="svc-card-name">Брови и ресницы</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="about-inner">
+
+      <div class="reveal">
+        <span class="label" style="margin-bottom:1.2rem;display:block">О студии</span>
+        <p class="about-quote" id="about-title">
+          <strong>Мне Красиво</strong> — пространство, где современные технологии
+          и профессиональный уход помогают каждой женщине
+          чувствовать себя <em>уверенно и прекрасно.</em>
+        </p>
+      </div>
+
+      <div class="stats reveal">
+        <div class="stat">
+          <div class="stat-val">6+</div>
+          <div class="stat-lbl">Лет работы</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">12</div>
+          <div class="stat-lbl">Процедур</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">2K+</div>
+          <div class="stat-lbl">Клиентов</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     GALLERY
+══════════════════════════════════════════ -->
+<section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+  <div class="wrap">
+
+    <div class="section-head reveal">
+      <span class="label">Наши работы</span>
+      <h2 class="section-title" id="gallery-title"><em>Галерея</em></h2>
+    </div>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Фото интерьера студии">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Фото процедуры">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Фото результата">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Фото оборудования">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Работа бровиста">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="gallery-cell reveal">
+        <div class="gallery-ph" aria-label="Фото косметологии">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="1"/><circle cx="11" cy="14" r="3"/>
+            <path d="M2 22l7-5 5 4 5-7 11 9"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer" id="contacts" aria-label="Контакты и информация о студии">
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <!-- brand -->
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="Мне Красиво">
+          <span class="logo-mk">МК</span>
+          <span class="logo-sep" aria-hidden="true"></span>
+          <span class="logo-text">Мне<br>Красиво</span>
+        </a>
+        <p class="footer-tagline">
+          Студия коррекции фигуры и красоты в Саранске
+        </p>
+      </div>
+
+      <!-- nav -->
+      <div class="footer-col">
+        <p class="footer-col-ttl">Навигация</p>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+
+      <!-- contacts -->
+      <div class="footer-col">
+        <p class="footer-col-ttl">Контакты</p>
+        <ul>
+          <li><a href="tel:+78342000000">+7 (8342) 00-00-00</a></li>
+          <li><a href="mailto:info@mnekrasivo.ru">info@mnekrasivo.ru</a></li>
+          <li><span>г. Саранск,<br>ул. Примерная, д. 1</span></li>
+        </ul>
+      </div>
+
+      <!-- social -->
+      <div class="footer-col">
+        <p class="footer-col-ttl">Соцсети</p>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">ВКонтакте</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+        <div class="social-row" aria-label="Иконки соцсетей">
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="ВКонтакте">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="M3 7h4l2 5 2-5h3v10h-3v-5l-2 4h-2l-2-4v5H3V7zM17 7h4s-1 3-3 5c1.5 1 3 3.5 3 5h-3.5s-1-2.5-3-3.5V17H12V7h2.5v3.5C16 9 17 7 17 7z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="M3 21l1.5-4.5A8.5 8.5 0 1 1 7.5 20L3 21z"/>
+              <path d="M9 11s.5 1 1 1.5 1.5 1 1.5 1 1-1 1.5-1 2 1 2 1"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 Студия «Мне Красиво». Все права защищены.</p>
+      <nav class="footer-links" aria-label="Юридические документы">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Пользовательское соглашение</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════ -->
+<script>
+(function () {
+
+  /* ── Preloader ───────────────────────────── */
+  document.body.style.overflow = 'hidden';
+
+  setTimeout(() => {
+    document.body.style.overflow = '';
+    const pl = document.getElementById('preloader');
+    pl.style.transition = 'opacity 1s ease';
+    pl.style.opacity = '0';
+    setTimeout(() => pl.remove(), 1000);
+  }, 14000);
+
+  /* ── Fullscreen menu ─────────────────────── */
+  const burger  = document.getElementById('burger');
+  const fm      = document.getElementById('fm');
+  const fmClose = document.getElementById('fm-close');
+
+  function openMenu() {
+    fm.classList.add('open');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    fm.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', () =>
+    fm.classList.contains('open') ? closeMenu() : openMenu()
+  );
+  fmClose.addEventListener('click', closeMenu);
+
+  fm.querySelectorAll('.fm-row, .fm-bl').forEach(el =>
+    el.addEventListener('click', closeMenu)
+  );
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  /* ── Header on scroll ────────────────────── */
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Scroll reveal ───────────────────────── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, idx) => {
+      if (!e.isIntersecting) return;
+      // stagger siblings inside a parent
+      const delay = parseFloat(e.target.dataset.delay || 0);
+      e.target.style.transitionDelay = delay + 's';
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12 });
+
+  // service cards — dedicated observer with setTimeout stagger
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const delay = parseInt(entry.target.dataset.cardDelay || 0);
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      cardObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.svc-card').forEach((card, i) => {
+    card.dataset.cardDelay = i * 120;
+    cardObserver.observe(card);
+  });
+
+  document.querySelectorAll('.gallery-cell').forEach((el, i) => {
+    el.dataset.delay = (i * 0.06).toFixed(2);
+  });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+})();
+</script>
+
+</body>
+</html>
