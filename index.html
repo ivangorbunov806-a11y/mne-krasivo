@@ -145,47 +145,63 @@
 ══════════════════════════════════════════ -->
 <section class="section services" id="services" aria-labelledby="svc-title">
   <div class="wrap">
-
     <div class="section-head reveal">
       <span class="label">Что мы предлагаем</span>
       <h2 class="section-title" id="svc-title">Наши <em>услуги</em></h2>
     </div>
+  </div>
 
-    <div class="svc-grid">
+  <div class="svc-scroll" id="svcScroll">
+    <div class="svc-track">
 
-      <div class="svc-card" style="--card-bg: #3d2a1a">
-        <span class="svc-card-n">001</span>
-        <span class="svc-card-name">Аппаратный массаж</span>
+      <div class="svc-card svc-card--photo" style="--card-bg: #3d2a1a">
+        <img src="images/process-3.jpg" class="svc-card-img" alt="Аппаратный массаж">
+        <div class="svc-card-body">
+          <span class="svc-card-n">001</span>
+          <span class="svc-card-name">Аппаратный массаж</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #2d1f12">
-        <span class="svc-card-n">002</span>
-        <span class="svc-card-name">LPG тела и лица</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">002</span>
+          <span class="svc-card-name">LPG тела и лица</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #4a3020">
-        <span class="svc-card-n">003</span>
-        <span class="svc-card-name">Вибрационная методика</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">003</span>
+          <span class="svc-card-name">Вибрационная методика</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #352515">
-        <span class="svc-card-n">004</span>
-        <span class="svc-card-name">RF-лифтинг</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">004</span>
+          <span class="svc-card-name">RF-лифтинг</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #3a2818">
-        <span class="svc-card-n">005</span>
-        <span class="svc-card-name">Лазерная эпиляция</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">005</span>
+          <span class="svc-card-name">Лазерная эпиляция</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #422e1c">
-        <span class="svc-card-n">006</span>
-        <span class="svc-card-name">Косметология</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">006</span>
+          <span class="svc-card-name">Косметология</span>
+        </div>
       </div>
 
       <div class="svc-card" style="--card-bg: #2e1e0f">
-        <span class="svc-card-n">007</span>
-        <span class="svc-card-name">Брови и ресницы</span>
+        <div class="svc-card-body">
+          <span class="svc-card-n">007</span>
+          <span class="svc-card-name">Брови и ресницы</span>
+        </div>
       </div>
 
     </div>
@@ -452,19 +468,45 @@
     });
   }, { threshold: 0.12 });
 
-  // service cards — dedicated observer with setTimeout stagger
-  const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const delay = parseInt(entry.target.dataset.cardDelay || 0);
-      setTimeout(() => entry.target.classList.add('visible'), delay);
-      cardObserver.unobserve(entry.target);
+  // service cards — observe scroll container, stagger all cards on enter
+  const svcScroll = document.getElementById('svcScroll');
+  if (svcScroll) {
+    const svcObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        svcScroll.querySelectorAll('.svc-card').forEach((card, i) => {
+          setTimeout(() => card.classList.add('visible'), i * 110);
+        });
+        svcObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    svcObserver.observe(svcScroll);
+
+    // wheel → horizontal scroll
+    svcScroll.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      svcScroll.scrollLeft += e.deltaY;
+    }, { passive: false });
+
+    // drag to scroll
+    let dragging = false, dragStartX, dragScrollLeft;
+    svcScroll.addEventListener('mousedown', (e) => {
+      dragging = true;
+      svcScroll.classList.add('is-dragging');
+      dragStartX = e.pageX - svcScroll.offsetLeft;
+      dragScrollLeft = svcScroll.scrollLeft;
     });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.svc-card').forEach((card, i) => {
-    card.dataset.cardDelay = i * 120;
-    cardObserver.observe(card);
-  });
+    document.addEventListener('mouseup', () => {
+      dragging = false;
+      svcScroll.classList.remove('is-dragging');
+    });
+    document.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+      svcScroll.scrollLeft = dragScrollLeft - (e.pageX - svcScroll.offsetLeft - dragStartX);
+    });
+  }
 
   document.querySelectorAll('.gallery-cell').forEach((el, i) => {
     el.dataset.delay = (i * 0.06).toFixed(2);
