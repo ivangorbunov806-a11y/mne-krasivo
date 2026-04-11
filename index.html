@@ -93,21 +93,36 @@
 
 
 <!-- ══════════════════════════════════════════
-     HERO
+     HERO — sticky scroll scene
 ══════════════════════════════════════════ -->
-<section class="hero" id="top" aria-label="Главный экран">
+<section class="hero-scene" id="top" aria-label="Главный экран">
+  <div class="hero-sticky">
 
-  <img class="hero-img" src="images/hero-main.jpg" alt="">
+    <!-- Parallax background -->
+    <div class="hero-bg">
+      <img class="hero-bg-img" src="images/hero-main.jpg" alt="">
+    </div>
+    <div class="hero-overlay"></div>
 
-  <h2 class="hero-phrase">красота в каждой детали</h2>
+    <!-- Phase 1: tagline + scroll hint (fades out on scroll) -->
+    <div class="hero-phase hero-phase-1">
+      <h2 class="hero-phrase">красота в каждой детали</h2>
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll-text">Прокрутите вниз</span>
+        <svg class="hero-scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M12 5v14M5 13l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
 
-  <div class="hero-scroll" aria-hidden="true">
-    <span class="hero-scroll-text">Прокрутите вниз</span>
-    <svg class="hero-scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-      <path d="M12 5v14M5 13l7 7 7-7"/>
-    </svg>
+    <!-- Phase 2: studio identity (fades in on scroll) -->
+    <div class="hero-phase hero-phase-2">
+      <p class="hero-studio-label">Студия коррекции фигуры · Саранск</p>
+      <h1 class="hero-studio-name">Мне<br>Красиво</h1>
+      <a href="#services" class="hero-studio-cta">Смотреть услуги</a>
+    </div>
+
   </div>
-
 </section>
 
 
@@ -479,9 +494,52 @@
     if (e.key === 'Escape') closeMenu();
   });
 
-  /* ── Header on scroll ────────────────────── */
-  const header = document.getElementById('header');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  /* ── Header on scroll + Hero sticky scroll ── */
+  const header     = document.getElementById('header');
+  const heroScene  = document.getElementById('top');
+  const heroBgImg  = heroScene?.querySelector('.hero-bg-img');
+  const heroPhase1 = heroScene?.querySelector('.hero-phase-1');
+  const heroPhase2 = heroScene?.querySelector('.hero-phase-2');
+
+  if (heroScene) {
+    let rafHero;
+    const tickHero = () => {
+      const sceneTop    = heroScene.getBoundingClientRect().top;
+      const extraScroll = heroScene.offsetHeight - window.innerHeight;
+      const progress    = Math.max(0, Math.min(1, -sceneTop / extraScroll));
+
+      // parallax: slow upward drift
+      if (heroBgImg) heroBgImg.style.transform = `translateY(${progress * -80}px)`;
+
+      // phase 1: fade out + move up over first 50% of scroll
+      const p1 = Math.max(0, Math.min(1, progress * 2));
+      if (heroPhase1) {
+        heroPhase1.style.opacity   = String(1 - p1);
+        heroPhase1.style.transform = `translateY(${p1 * -60}px)`;
+      }
+
+      // phase 2: fade in + rise from 40% to 100% of scroll
+      const p2 = Math.max(0, Math.min(1, (progress - 0.4) / 0.6));
+      if (heroPhase2) {
+        heroPhase2.style.opacity   = String(p2);
+        heroPhase2.style.transform = `translateY(${(1 - p2) * 40}px)`;
+        heroPhase2.classList.toggle('is-active', p2 > 0.05);
+      }
+
+      rafHero = null;
+    };
+    window.addEventListener('scroll', () => {
+      if (!rafHero) rafHero = requestAnimationFrame(tickHero);
+    }, { passive: true });
+    tickHero();
+  }
+
+  const onScroll = () => {
+    const threshold = heroScene
+      ? Math.max(40, heroScene.offsetHeight - window.innerHeight - 10)
+      : 40;
+    header.classList.toggle('scrolled', window.scrollY > threshold);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
