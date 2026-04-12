@@ -856,8 +856,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .header-logo-img { width: 120px; }
 
   /* hero */
-  .hero-bg       { inset: -20vh -20vw; }
-  .hero-bg-img   { object-position: 55% 50%; }
+  .hero-bg       { inset: -65vh -65vw; }
+  .hero-bg-img   { object-position: 25% 50%; }
   .hero-phrase   { left: var(--pad-x); max-width: 80%; font-size: clamp(1.75rem, 5.5vw, 3rem); bottom: 14%; }
   .hero-studio-name { font-size: clamp(2rem, 12vw, 3.5rem); line-height: 0.95; margin-bottom: 2rem; }
 
