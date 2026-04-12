@@ -538,8 +538,32 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 
 /* ══════════════════════════════════════════════
-   SERVICES  — horizontal scroll (ever.co.id style)
+   SERVICES  — sticky scroll scene
 ══════════════════════════════════════════════ */
+
+/* outer scene: drives the ScrollTrigger */
+.svc-scene {
+  position: relative;
+  height: 250vh;
+}
+
+/* sticky frame: stays pinned while scene scrolls */
+.svc-sticky-wrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* services section inside the sticky frame */
+.svc-scene .section.services {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .services { background: var(--bg); }
 
 .svc-scroll {
@@ -571,7 +595,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   opacity: 0;
   transform: scale(0.3);
   transform-origin: center center;
-  transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s var(--ease);
+  /* transition removed — GSAP scrub handles all animation */
 }
 .svc-card.visible {
   opacity: 1;

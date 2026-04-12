@@ -157,8 +157,10 @@
 
 
 <!-- ══════════════════════════════════════════
-     SERVICES
+     SERVICES — sticky scroll scene
 ══════════════════════════════════════════ -->
+<div class="svc-scene">
+<div class="svc-sticky-wrap">
 <section class="section services" id="services" aria-labelledby="svc-title">
   <div class="wrap">
     <div class="section-head reveal">
@@ -251,6 +253,8 @@
     </div>
   </div>
 </section>
+</div><!-- /.svc-sticky-wrap -->
+</div><!-- /.svc-scene -->
 
 
 <!-- ══════════════════════════════════════════
@@ -446,6 +450,10 @@
 </footer>
 
 
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
 <!-- ══════════════════════════════════════════
      SCRIPTS
 ══════════════════════════════════════════ -->
@@ -555,45 +563,7 @@
     });
   }, { threshold: 0.12 });
 
-  // service cards — observe scroll container, stagger all cards on enter
-  const svcScroll = document.getElementById('svcScroll');
-  if (svcScroll) {
-    const svcObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        svcScroll.querySelectorAll('.svc-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('visible'), i * 110);
-        });
-        svcObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0.15 });
-    svcObserver.observe(svcScroll);
-
-    // wheel → horizontal scroll
-    svcScroll.addEventListener('wheel', (e) => {
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-      e.preventDefault();
-      svcScroll.scrollLeft += e.deltaY;
-    }, { passive: false });
-
-    // drag to scroll
-    let dragging = false, dragStartX, dragScrollLeft;
-    svcScroll.addEventListener('mousedown', (e) => {
-      dragging = true;
-      svcScroll.classList.add('is-dragging');
-      dragStartX = e.pageX - svcScroll.offsetLeft;
-      dragScrollLeft = svcScroll.scrollLeft;
-    });
-    document.addEventListener('mouseup', () => {
-      dragging = false;
-      svcScroll.classList.remove('is-dragging');
-    });
-    document.addEventListener('mousemove', (e) => {
-      if (!dragging) return;
-      e.preventDefault();
-      svcScroll.scrollLeft = dragScrollLeft - (e.pageX - svcScroll.offsetLeft - dragStartX);
-    });
-  }
+  // svc-card reveal is now handled by GSAP ScrollTrigger (see below)
 
   document.querySelectorAll('.gallery-cell').forEach((el, i) => {
     el.dataset.delay = (i * 0.06).toFixed(2);
@@ -601,6 +571,42 @@
 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+})();
+</script>
+
+<!-- GSAP: Services sticky scroll animation -->
+<script>
+(function () {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  var svcScene = document.querySelector('.svc-scene');
+  if (!svcScene) return;
+
+  var cards = gsap.utils.toArray('.svc-card');
+
+  /* Cards start at scale(0.3) opacity(0) — matches CSS initial state.
+     Animate to scale(1) opacity(1) tied to vertical scroll via scrub. */
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: svcScene,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.8,
+    }
+  });
+
+  tl.fromTo(cards,
+    { scale: 0.3, opacity: 0, transformOrigin: 'center center' },
+    { scale: 1,   opacity: 1, stagger: 0.04, ease: 'none' }
+  );
+
+  /* Refresh after full page load so GSAP measures correct positions.
+     Fixes: hero-scene is 200vh — layout not settled at DOMContentLoaded. */
+  window.addEventListener('load', function () {
+    ScrollTrigger.refresh();
+  });
 })();
 </script>
 
