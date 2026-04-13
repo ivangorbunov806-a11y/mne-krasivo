@@ -627,18 +627,18 @@
 })();
 </script>
 
-<!-- MODAL -->
-<div id="service-modal" style="display:none; position:fixed; inset:0; background:rgba(42,28,18,0.85); z-index:9999; overflow-y:auto; padding:2rem 1rem;">
-  <div style="max-width:560px; margin:0 auto; background:#f5f0e8; border:1px solid rgba(101,67,33,0.2); border-radius:4px; padding:2rem; position:relative;">
-    <button id="modal-close" style="position:absolute; top:1rem; right:1.25rem; background:none; border:none; color:rgba(101,67,33,0.5); font-size:1.25rem; cursor:pointer; line-height:1;">✕</button>
-    <div id="modal-num" style="font-size:11px; color:rgba(101,67,33,0.5); letter-spacing:0.12em; margin-bottom:6px;"></div>
-    <div id="modal-title" style="font-size:1.3rem; font-weight:400; color:#2a1c12; margin-bottom:1.5rem; letter-spacing:0.06em; text-transform:uppercase;"></div>
-    <div id="modal-content"></div>
-    <a id="modal-whatsapp" href="https://wa.me/79279782022" target="_blank" style="display:block; margin-top:1.5rem; padding:0.85rem; border:1px solid rgba(101,67,33,0.4); color:#2a1c12; text-align:center; text-decoration:none; font-size:12px; letter-spacing:0.12em; text-transform:uppercase;">Записаться в WhatsApp →</a>
-  </div>
-</div>
 
-<!-- SERVICES JS -->
+<!-- SERVICES: navigate to individual pages on card click -->
+<script>
+document.querySelectorAll('[data-service]').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    window.location.href = 'service-' + parseInt(card.dataset.service) + '.html';
+  });
+});
+</script>
+
+<!-- servicesData preserved for future use -->
 <script>
 const servicesData = {
   "001": {
@@ -761,42 +761,7 @@ const servicesData = {
   }
 };
 
-function buildModalContent(sections) {
-  return sections.map(sec => `
-    <div style="margin-bottom:1.25rem;">
-      <div style="font-size:10px; letter-spacing:0.12em; color:rgba(101,67,33,0.5); text-transform:uppercase; padding-bottom:6px; border-bottom:1px solid rgba(101,67,33,0.15); margin-bottom:8px;">${sec.title}</div>
-      ${sec.rows.map(r => `
-        <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid rgba(101,67,33,0.08); font-size:13px;">
-          <span style="color:rgba(42,28,18,0.6); flex:1; padding-right:12px;">${r[0]}</span>
-          <span style="color:#2a1c12; font-weight:500; white-space:nowrap;">${r[1]}</span>
-        </div>`).join('')}
-    </div>`).join('');
-}
 
-document.querySelectorAll('[data-service]').forEach(card => {
-  card.style.cursor = 'pointer';
-  card.addEventListener('click', () => {
-    const id = card.dataset.service;
-    const data = servicesData[id];
-    if (!data) return;
-    document.getElementById('modal-num').textContent = id;
-    document.getElementById('modal-title').textContent = data.title;
-    document.getElementById('modal-content').innerHTML = buildModalContent(data.sections);
-    document.getElementById('service-modal').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-document.getElementById('modal-close').addEventListener('click', closeServiceModal);
-document.getElementById('service-modal').addEventListener('click', e => {
-  if (e.target === document.getElementById('service-modal')) closeServiceModal();
-});
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceModal(); });
-
-function closeServiceModal() {
-  document.getElementById('service-modal').style.display = 'none';
-  document.body.style.overflow = '';
-}
 </script>
 
 </body>
