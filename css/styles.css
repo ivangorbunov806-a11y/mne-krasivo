@@ -542,64 +542,76 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 ══════════════════════════════════════════════ */
 
 /* outer scene: drives the ScrollTrigger */
-.svc-scene {
-  position: relative;
-  height: 250vh;
+/* ── Services: sticky grid scroll ────────── */
+#services {
+  padding-top: clamp(4rem, 8vw, 6rem);
 }
 
-/* sticky frame: stays pinned while scene scrolls */
+.services-header {
+  max-width: var(--max-w);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  padding: 0 var(--pad-x);
+}
+
+.services-header__title {
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.svc-scene {
+  position: relative;
+  height: 480vh;
+}
+
 .svc-sticky-wrap {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background: var(--bg);
 }
 
-/* services section inside the sticky frame */
 .svc-scene .section.services {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
 }
 
-.services { background: var(--bg); }
-
-.svc-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  cursor: grab;
-  user-select: none;
-}
-.svc-scroll::-webkit-scrollbar { display: none; }
-.svc-scroll.is-dragging { cursor: grabbing; }
-
-.svc-track {
-  display: flex;
-  gap: 20px;
-  padding: 0 var(--pad-x) 2rem;
+/* Gallery wrapper — centered absolutely */
+.svc-gallery {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
+/* 3-column grid */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  will-change: transform;
+}
+
+/* Cards */
 .svc-card {
-  flex: 0 0 360px;
-  height: 360px;
+  width: clamp(180px, 22vw, 300px);
+  aspect-ratio: 1;
   background: var(--card-bg, #2d1f12);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  opacity: 0;
-  transform: scale(0.3);
-  transform-origin: center center;
-  /* transition removed — GSAP scrub handles all animation */
-}
-.svc-card.visible {
-  opacity: 1;
-  transform: scale(1);
+  cursor: pointer;
+  will-change: transform;
 }
 .svc-card:hover { filter: brightness(1.12); }
 
@@ -636,7 +648,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.2em;
-  color: rgba(240, 235, 228, 0.4);
+  color: rgba(245, 237, 224, 0.4);
 }
 
 .svc-card-name {
@@ -645,7 +657,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #f0ebe4;
+  color: var(--bg);
   line-height: 1.4;
 }
 
@@ -847,7 +859,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 ══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .svc-item    { grid-template-columns: 2.5rem 1fr auto; }
+
 }
 
 @media (max-width: 768px) {
@@ -866,7 +878,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .stats       { grid-template-columns: repeat(3, 1fr); }
 
   /* services */
-  .svc-card { flex: 0 0 260px; height: 260px; }
+  .svc-scene { height: 620vh; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .svc-card { width: clamp(140px, 42vw, 220px); }
+  .svc-content { white-space: normal; width: 80vw; }
 
   /* gallery */
   .gallery-grid {
