@@ -545,6 +545,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 /* ── Services: sticky grid scroll ────────── */
 #services {
   padding-top: clamp(4rem, 8vw, 6rem);
+  scroll-margin-top: 80px;
 }
 
 .services-header {

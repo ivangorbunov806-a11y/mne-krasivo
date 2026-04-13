@@ -432,15 +432,24 @@
 (function () {
 
   /* ── Preloader ───────────────────────────── */
-  document.body.style.overflow = 'hidden';
+  window._skipIntro = window.location.hash === '#services';
 
-  setTimeout(() => {
-    document.body.style.overflow = '';
+  if (window._skipIntro) {
+    /* Came back from a service page — skip preloader entirely */
     const pl = document.getElementById('preloader');
-    pl.style.transition = 'opacity 1s ease';
-    pl.style.opacity = '0';
-    setTimeout(() => pl.remove(), 1000);
-  }, 4000);
+    if (pl) pl.remove();
+  } else {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      document.body.style.overflow = '';
+      const pl = document.getElementById('preloader');
+      if (pl) {
+        pl.style.transition = 'opacity 1s ease';
+        pl.style.opacity = '0';
+        setTimeout(() => pl.remove(), 1000);
+      }
+    }, 4000);
+  }
 
   /* ── Fullscreen menu ─────────────────────── */
   const burger  = document.getElementById('burger');
@@ -559,6 +568,18 @@
 
   var cards = gsap.utils.toArray('.svc-card');
   if (cards.length < 6) return;
+
+  /* ── Skip-intro mode: came back from a service page ── */
+  if (window._skipIntro) {
+    gsap.set(cards,   { y: 0, x: 0, xPercent: 0, yPercent: 0, clearProps: 'transform' });
+    gsap.set(svcGrid, { scale: 1.03, clearProps: 'none' });
+    window.addEventListener('load', function () {
+      var target = document.getElementById('services');
+      if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      ScrollTrigger.refresh();
+    });
+    return;
+  }
 
   var isMobile = window.innerWidth <= 768;
 
