@@ -548,6 +548,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   scroll-margin-top: 80px;
 }
 
+/* Skip-intro: hide svc-scene until GSAP is positioned, then fade in */
+html.skip-intro .svc-scene { opacity: 0; }
+.svc-scene { transition: opacity 0.35s ease; }
+
 .services-header {
   max-width: var(--max-w);
   margin: 0 auto clamp(2rem, 4vw, 3rem);

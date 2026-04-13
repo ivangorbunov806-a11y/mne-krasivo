@@ -569,16 +569,35 @@
   var cards = gsap.utils.toArray('.svc-card');
   if (cards.length < 6) return;
 
-  /* ── Skip-intro mode: came back from a service page ── */
+  /* ── Skip-intro mode: came back from a service page ────────────────
+     Strategy: hide the scene, create all timelines normally so scrub
+     stays alive, then scroll to the "Phase 1 complete" position and
+     reveal. ScrollTrigger computes correct card positions automatically.  */
   if (window._skipIntro) {
-    gsap.set(cards,   { y: 0, x: 0, xPercent: 0, yPercent: 0, clearProps: 'transform' });
-    gsap.set(svcGrid, { scale: 1.03, clearProps: 'none' });
+    document.documentElement.classList.add('skip-intro');
+
     window.addEventListener('load', function () {
-      var target = document.getElementById('services');
-      if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
       ScrollTrigger.refresh();
+
+      /* Phase 1 ends at '75% bottom':
+         scrollY = svcScene.top + 75% × svcScene.height − viewportHeight  */
+      var sceneRect = svcScene.getBoundingClientRect();
+      var targetY   = Math.max(0,
+        sceneRect.top + window.scrollY
+        + svcScene.offsetHeight * 0.75
+        - window.innerHeight
+      );
+      window.scrollTo({ top: targetY, behavior: 'instant' });
+
+      /* Two rAFs: let GSAP apply scrub state, then reveal */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.documentElement.classList.remove('skip-intro');
+        });
+      });
     });
-    return;
+
+    /* Fall through — timelines created normally below */
   }
 
   var isMobile = window.innerWidth <= 768;
