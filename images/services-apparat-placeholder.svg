@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Изображение скоро появится">
+  <rect width="1200" height="900" fill="#f4f4f4"/>
+  <rect x="60" y="60" width="1080" height="780" rx="24" fill="#ececec" stroke="#d7d7d7"/>
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" fill="#7a7a7a">Фото скоро появится</text>
+</svg>
