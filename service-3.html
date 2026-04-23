@@ -24,10 +24,10 @@
     .sp-desc { padding-bottom: 2.5rem; }
     .sp-desc p { font-family: var(--ff-body); font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.75; color: var(--text-muted); max-width: 660px; }
     .sp-section { border-top: 1px solid var(--line); padding: 2.4rem 0; }
-    .sp-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1rem; }
-    .sp-card { border: 1px solid var(--line); padding: 1rem; background: #fff; }
-    .sp-card h3 { font-family: var(--ff-body); font-size: 0.84rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.55rem; }
-    .sp-card p { font-family: var(--ff-body); font-size: 0.94rem; color: var(--text-muted); line-height: 1.55; }
+    .sp-section-title { font-family: var(--ff-display); font-style: italic; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.25rem; }
+    .sp-price-block { border: 1px solid var(--line); background: #fff; padding: 1rem; margin-bottom: 1rem; }
+    .sp-price-block h3 { font-family: var(--ff-body); font-size: 0.84rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.7rem; }
+    .sp-price-list { margin: 0; padding-left: 1rem; display: grid; gap: .45rem; color: var(--text-muted); }
     .sp-actions { padding: 3rem 0; border-top: 1px solid var(--line); }
     .sp-btn, .sp-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2.25rem; font-family: var(--ff-body); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; }
     .sp-btn { border: 1px solid rgba(28,15,6,0.25); color: var(--text); }
@@ -41,8 +41,39 @@
 <main><div class="sp-wrap">
   <div class="sp-hero"><span class="sp-num">003</span><h1 class="sp-title">Косметология</h1><p class="sp-subtitle">Уход и аппаратные процедуры для лица</p></div>
   <div class="sp-photo-grid"><img src="images/services-cosmetology.webp" alt="Косметология"><img src="images/services-cosmetology-2.webp" alt="Косметология уход"></div>
-  <div class="sp-desc"><p>Процедуры для очищения, восстановления и поддержания состояния кожи.</p></div>
-  <section class="sp-section"><div class="sp-grid"><article class="sp-card"><h3>Чистка</h3><p>Глубокое очищение и обновление кожи.</p></article><article class="sp-card"><h3>Уход</h3><p>Питание, увлажнение и восстановление.</p></article><article class="sp-card"><h3>Аппаратные процедуры</h3><p>Современные методы работы с кожей лица.</p></article></div></section>
+  <div class="sp-desc"><p>Процедуры для очищения, восстановления и поддержания состояния кожи. Ниже — актуальный прайс по ключевым направлениям.</p></div>
+
+  <section class="sp-section">
+    <h2 class="sp-section-title">Каталог процедур</h2>
+
+    <div class="sp-price-block">
+      <h3>Пилинги</h3>
+      <ul class="sp-price-list">
+        <li>Мультикислотный — 1590 ₽</li>
+        <li>Миндальный — 1590 ₽</li>
+        <li>Азелаиновый — 1590 ₽</li>
+        <li>Ретиноловый — 2500 ₽</li>
+      </ul>
+    </div>
+
+    <div class="sp-price-block">
+      <h3>Чистка</h3>
+      <ul class="sp-price-list">
+        <li>Комбинированная — 2490 ₽</li>
+        <li>Ультразвуковая — 1990 ₽</li>
+        <li>Механическая — 1990 ₽</li>
+        <li>Вакуумная — 1990 ₽</li>
+      </ul>
+    </div>
+
+    <div class="sp-price-block">
+      <h3>Комбо</h3>
+      <ul class="sp-price-list">
+        <li>Чистка + пилинг — 3500 ₽</li>
+      </ul>
+    </div>
+  </section>
+
   <div class="sp-actions"><a href="index.html#services" class="sp-btn">← Все услуги</a><a href="https://wa.me/79279782022" class="sp-whatsapp" target="_blank">Записаться →</a></div>
 </div></main>
 </body>

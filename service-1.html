@@ -25,15 +25,25 @@
     .sp-desc p { font-family: var(--ff-body); font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 1.75; color: var(--text-muted); max-width: 700px; }
     .sp-section { padding: clamp(2.5rem, 6vw, 4rem) 0; border-top: 1px solid var(--line); }
     .sp-section-title { font-family: var(--ff-display); font-style: italic; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1.25rem; }
-    .sp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
-    .sp-card { border: 1px solid var(--line); background: #fff; }
-    .sp-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-    .sp-card-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg3); border-bottom: 1px dashed rgba(28,15,6,0.18); display: grid; place-items: center; font-family: var(--ff-body); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
-    .sp-card-content { padding: 1rem 0.95rem 1.1rem; }
-    .sp-card-title { font-family: var(--ff-body); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); margin-bottom: 0.55rem; }
-    .sp-card-text { font-family: var(--ff-body); font-size: 0.92rem; color: var(--text-muted); line-height: 1.55; }
     .sp-points { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.65rem; }
     .sp-points li { font-family: var(--ff-body); color: var(--text-muted); line-height: 1.5; }
+
+    .service-item { margin-bottom: 20px; border: 1px solid var(--line); background: #fff; }
+    .service-preview { padding: 1rem; }
+    .service-preview h3 { font-family: var(--ff-body); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+    .service-preview p { color: var(--text-muted); margin-bottom: 0.65rem; }
+    .price-from { display: inline-block; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .toggle { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(28,15,6,.25); padding: 0.5rem 0.8rem; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); }
+
+    .service-details { display:none; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .35s var(--ease-out), opacity .3s ease, padding .3s ease; padding: 0 1rem; }
+    .service-item.open .service-details { display:block; max-height: 600px; opacity: 1; padding: 0 1rem 1rem; }
+    .service-item.open .toggle { background: var(--bg2); }
+    .service-details ul { margin: 0; padding-left: 1rem; display: grid; gap: 0.35rem; color: var(--text-muted); }
+
+    .combo-section { border: 1px solid var(--line-gold); background: rgba(237,224,205,.5); padding: 1.15rem; }
+    .combo-section h3 { font-family: var(--ff-body); font-size: 0.85rem; letter-spacing: 0.11em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .combo-list { margin: 0 0 0.6rem; padding-left: 1rem; display: grid; gap: 0.4rem; color: var(--text-muted); }
+
     .sp-actions { padding: clamp(3rem, 8vw, 6rem) 0; border-top: 1px solid var(--line); }
     .sp-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2.25rem; border: 1px solid rgba(28,15,6,0.25); font-family: var(--ff-body); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: background 0.25s, border-color 0.25s; }
     .sp-btn:hover { background: var(--bg2); border-color: rgba(28,15,6,0.4); }
@@ -51,26 +61,41 @@
   <div class="sp-wrap">
     <div class="sp-hero"><span class="sp-num">001</span><h1 class="sp-title">Аппаратный<br>массаж</h1><p class="sp-subtitle">Коррекция фигуры и улучшение тонуса тела</p></div>
     <img class="sp-photo-img" src="images/services-apparat-master-anna.webp" alt="Мастер аппаратного массажа — Анна Воронова">
-    <div class="sp-desc"><p>Аппаратный массаж — это современный подход к коррекции фигуры и улучшению качества кожи без агрессивного воздействия. В работе используются технологии LPG, вакуумно-роликовый массаж, RF-лифтинг и лимфодренажные методики, направленные на уменьшение объёмов, улучшение тонуса и запуск естественных процессов восстановления. Процедуры проводит Елена — специалист с внимательным подходом и акцентом на видимый результат и комфорт клиента. Уже после первых сеансов ощущается лёгкость, улучшается состояние кожи и формируется более чёткий силуэт.</p></div>
+    <div class="sp-desc"><p>Аппаратный массаж — это современный подход к коррекции фигуры и улучшению качества кожи без агрессивного воздействия. В работе используются технологии LPG, вакуумно-роликовый массаж, RF-лифтинг и лимфодренажные методики, направленные на уменьшение объёмов, улучшение тонуса и запуск естественных процессов восстановления.</p></div>
 
     <section class="sp-section">
       <h2 class="sp-section-title">Каталог процедур</h2>
-      <div class="sp-grid">
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-lpg.webp" alt="LPG тела и лица"><div class="sp-card-content"><h3 class="sp-card-title">LPG тела и лица</h3><p class="sp-card-text">Мягкая проработка тканей и улучшение тонуса кожи.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-vibration.webp" alt="Вибрационная методика"><div class="sp-card-content"><h3 class="sp-card-title">Вибрационная методика</h3><p class="sp-card-text">Стимуляция мышц и улучшение микроциркуляции.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-hot-vacuum.webp" alt="Горячий вакуум"><div class="sp-card-content"><h3 class="sp-card-title">Горячий вакуум</h3><p class="sp-card-text">Глубокая работа с зонами и выраженный лимфодренаж.</p></div></article>
-        <article class="sp-card"><div class="sp-card-placeholder">Фото скоро появится</div><div class="sp-card-content"><h3 class="sp-card-title">Вакуумно-роликовый 9D Roller</h3><p class="sp-card-text">Комплексное воздействие на кожу и контуры тела.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-cavitation.webp" alt="УЗ-кавитация"><div class="sp-card-content"><h3 class="sp-card-title">УЗ-кавитация</h3><p class="sp-card-text">Работа с жировыми зонами и коррекция силуэта.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-pressotherapy.webp" alt="Прессотерапия"><div class="sp-card-content"><h3 class="sp-card-title">Прессотерапия</h3><p class="sp-card-text">Лимфодренаж и снятие отёчности.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-spider-main.webp" alt="Точечный лифтинг Паук"><div class="sp-card-content"><h3 class="sp-card-title">Точечный лифтинг «Паук»</h3><p class="sp-card-text">Точечное воздействие и активная стимуляция кожи.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-emsculpt.webp" alt="EMSCULPT"><div class="sp-card-content"><h3 class="sp-card-title">EMSCULPT</h3><p class="sp-card-text">Работа с мышцами и формирование рельефа тела.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-biophoton.webp" alt="Биофотон"><div class="sp-card-content"><h3 class="sp-card-title">Биофотон</h3><p class="sp-card-text">Световое воздействие для улучшения состояния кожи.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-rf-lifting-2.webp" alt="RF-лифтинг лица и тела"><div class="sp-card-content"><h3 class="sp-card-title">RF-лифтинг лица и тела</h3><p class="sp-card-text">Подтяжка кожи и улучшение упругости.</p></div></article>
-        <article class="sp-card"><div class="sp-card-placeholder">Фото скоро появится</div><div class="sp-card-content"><h3 class="sp-card-title">Термоодеяло</h3><p class="sp-card-text">Глубокое прогревание и расслабление тела.</p></div></article>
-        <article class="sp-card"><img class="sp-card-img" src="images/services-apparat-vibroplatform.webp" alt="Виброплатформа"><div class="sp-card-content"><h3 class="sp-card-title">Виброплатформа</h3><p class="sp-card-text">Активация мышц и улучшение общего тонуса.</p></div></article>
-        <article class="sp-card"><div class="sp-card-placeholder">Фото скоро появится</div><div class="sp-card-content"><h3 class="sp-card-title">Лазерный липолиз</h3><p class="sp-card-text">Работа с локальными зонами и формирование контуров.</p></div></article>
-        <article class="sp-card"><div class="sp-card-placeholder">Фото скоро появится</div><div class="sp-card-content"><h3 class="sp-card-title">Комплексы</h3><p class="sp-card-text">Индивидуальные программы под задачи клиента.</p></div></article>
-      </div>
+
+      <div class="service-item"><div class="service-preview"><h3>LPG тела</h3><p>Мягкая проработка тканей, лимфодренаж и коррекция силуэта.</p><span class="price-from">от 1000 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>35 мин — 1000 ₽</li><li>45 мин — 1200 ₽</li><li>5 процедур — 4500 ₽</li><li>10 процедур — 8500 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>LPG лица</h3><p>Деликатный лифтинг и улучшение качества кожи лица.</p><span class="price-from">от 700 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>20 мин — 700 ₽</li><li>5 процедур — 3250 ₽</li><li>10 процедур — 6000 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Горячий вакуум</h3><p>Глубокая проработка проблемных зон с выраженным дренажным эффектом.</p><span class="price-from">от 1000 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>30 мин — 1000 ₽</li><li>40 мин — 1200 ₽</li><li>5×30 — 4750 ₽</li><li>5×40 — 5500 ₽</li><li>10×30 — 9000 ₽</li><li>10×40 — 10000 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Вибрационная методика</h3><p>Активация мышц и микроциркуляции, тонус и упругость кожи.</p><span class="price-from">от 1000 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>30 мин — 1000 ₽</li><li>40 мин — 1200 ₽</li><li>5×30 — 4500 ₽</li><li>5×40 — 5000 ₽</li><li>10×30 — 8500 ₽</li><li>10×40 — 9500 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Вакуумно-роликовый 9D</h3><p>Интенсивная работа с рельефом, объёмами и качеством кожи.</p><span class="price-from">от 1500 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>45 мин — 1500 ₽</li><li>5 процедур — 6500 ₽</li><li>10 процедур — 12000 ₽</li><li>Крем — 100 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Прессотерапия</h3><p>Лёгкость в теле, уменьшение отёчности и улучшение лимфотока.</p><span class="price-from">от 550 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>20 мин — 550 ₽</li><li>5 процедур — 2500 ₽</li><li>10 процедур — 4500 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Термоодеяло</h3><p>Прогрев, расслабление и усиление обменных процессов.</p><span class="price-from">от 1100 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Сеанс — 1100 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Паук</h3><p>Точечное воздействие для тонуса и стимуляции тканей.</p><span class="price-from">от 550 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>20 мин — 550 ₽</li><li>5 процедур — 2500 ₽</li><li>10 процедур — 4500 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>RF</h3><p>Подтяжка и уплотнение кожи лица и тела.</p><span class="price-from">от 700 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Лицо — 700 ₽</li><li>Лицо + уход — 900 ₽</li><li>Тело — 900 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>EMS</h3><p>Нагрузка на мышцы, моделирование и укрепление силуэта.</p><span class="price-from">от 500 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Пробная процедура — 500 ₽</li><li>30 мин — 800 ₽</li><li>5 процедур — 3000 ₽</li><li>10 процедур — 5500 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Биофотон</h3><p>Световая процедура для улучшения качества и тона кожи.</p><span class="price-from">от 700 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>25 мин — 700 ₽</li></ul></div></div>
+      <div class="service-item"><div class="service-preview"><h3>Кавитация</h3><p>Работа с локальными жировыми отложениями и контурами тела.</p><span class="price-from">от 1000 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>20 мин — 1000 ₽</li><li>40 мин — 1500 ₽</li></ul></div></div>
+    </section>
+
+    <section class="sp-section combo-section">
+      <h2 class="sp-section-title">Комбо-программы</h2>
+      <h3>Отдельный блок</h3>
+      <ul class="combo-list">
+        <li>Вибро + вакуум — 1100 ₽</li>
+        <li>LPG + прессо — 1100 ₽</li>
+        <li>Вакуум + биофотон — 1100 ₽</li>
+        <li>RF + вибро — 1100 ₽</li>
+        <li>LPG + RF — 1100 ₽</li>
+        <li>Вибро + кавитация — 1100 ₽</li>
+        <li>LPG + EMS — 1100 ₽</li>
+        <li>Вибро + EMS — 1100 ₽</li>
+        <li>LPG + кавитация — 1100 ₽</li>
+        <li>LPG лицо + RF лицо — 1100 ₽</li>
+      </ul>
+      <p class="sp-card-text">+ крем — 100 ₽</p>
     </section>
 
     <section class="sp-section">
@@ -81,7 +106,6 @@
         <li>лимфодренаж</li>
         <li>снижение отёчности</li>
         <li>формирование силуэта</li>
-        <li>комплексный уход</li>
       </ul>
     </section>
 
@@ -91,5 +115,14 @@
     </div>
   </div>
 </main>
+<script>
+  document.querySelectorAll('.service-item .toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.service-item');
+      item.classList.toggle('open');
+      btn.textContent = item.classList.contains('open') ? 'Скрыть' : 'Подробнее';
+    });
+  });
+</script>
 </body>
 </html>

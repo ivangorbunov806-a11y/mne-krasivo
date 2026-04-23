@@ -977,3 +977,8 @@ html.skip-intro .svc-scene { opacity: 0; }
     clip-path: inset(0 0% 0 0);
   }
 }
+
+/* Service accordion additions */
+.service-item { margin-bottom: 20px; }
+.service-details { display: none; }
+.service-item.open .service-details { display: block; }
