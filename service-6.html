@@ -13,7 +13,17 @@
     .sp-back{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:.5rem}.sp-logo-link{display:flex;align-items:center;gap:.6rem;text-decoration:none}.sp-logo-icon{width:28px}.sp-logo-name{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text)}
     .sp-hero{padding:clamp(4rem,10vw,7rem) 0 clamp(2rem,5vw,3rem)}.sp-num{display:block;font-family:var(--ff-body);font-size:.6rem;letter-spacing:.25em;color:var(--text-dim);margin-bottom:1rem}.sp-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(2.5rem,7vw,5.5rem);line-height:1.05;margin-bottom:.75rem}.sp-subtitle{font-family:var(--ff-body);font-size:clamp(.9rem,1.8vw,1.05rem);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
     .sp-photo{width:100%;aspect-ratio:16/9;background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;border:1px dashed rgba(28,15,6,.15);margin-bottom:2.5rem}.sp-photo-icon{width:40px;height:40px;opacity:.25}.sp-photo-label{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
-    .sp-desc{padding-bottom:2.5rem}.sp-desc p{font-family:var(--ff-body);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.75;color:var(--text-muted);max-width:620px}.sp-section{padding:2.5rem 0;border-top:1px solid var(--line)}.sp-list{margin:0;padding-left:1.1rem;display:grid;gap:.65rem}.sp-list li{font-family:var(--ff-body);color:var(--text-muted)}
+    .sp-desc{padding-bottom:2.5rem}.sp-desc p{font-family:var(--ff-body);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.75;color:var(--text-muted);max-width:620px}.sp-section{padding:2.5rem 0;border-top:1px solid var(--line)}
+    .sp-section-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.25rem}
+    .service-item { margin-bottom: 20px; border: 1px solid var(--line); background: #fff; }
+    .service-preview { padding: 1rem; }
+    .service-preview h3 { font-family: var(--ff-body); font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+    .service-preview p { color: var(--text-muted); margin-bottom: 0.65rem; }
+    .price-from { display: inline-block; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .toggle { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(28,15,6,.25); padding: 0.5rem 0.8rem; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); }
+    .service-details { display:none; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .35s var(--ease-out), opacity .3s ease, padding .3s ease; padding: 0 1rem; }
+    .service-item.open .service-details { display:block; max-height: 180px; opacity: 1; padding: 0 1rem 1rem; }
+    .service-details ul { margin: 0; padding-left: 1rem; display: grid; gap: 0.35rem; color: var(--text-muted); }
     .sp-actions{padding:3rem 0;border-top:1px solid var(--line)}.sp-btn,.sp-whatsapp{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.25rem;font-family:var(--ff-body);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none}.sp-btn{border:1px solid rgba(28,15,6,.25);color:var(--text)}.sp-whatsapp{margin-left:1rem;background:var(--accent);color:var(--bg)}
     @media (max-width:600px){.sp-actions{display:flex;flex-direction:column;gap:.75rem}.sp-whatsapp{margin-left:0}}
   </style>
@@ -23,8 +33,28 @@
 <main><div class="sp-wrap">
 <div class="sp-hero"><span class="sp-num">006</span><h1 class="sp-title">Брови и ресницы</h1><p class="sp-subtitle">Выразительный взгляд и аккуратная форма</p></div>
 <div class="sp-photo"><svg class="sp-photo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="34" height="26" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="31" cy="12" r="2" fill="currentColor" opacity="0.4"/></svg><span class="sp-photo-label">Фото скоро появится</span></div>
-<div class="sp-desc"><p>Работа с формой, линией и общим образом.</p></div>
-<section class="sp-section"><ul class="sp-list"><li>оформление бровей</li><li>ресницы</li><li>ламинирование</li><li>уход</li></ul></section>
+<div class="sp-desc"><p>Оформление бровей и ресниц с акцентом на естественную форму и чистый результат.</p></div>
+
+<section class="sp-section">
+  <h2 class="sp-section-title">Каталог процедур</h2>
+
+  <div class="service-item"><div class="service-preview"><h3>Окрашивание бровей</h3><p>Подбор оттенка и аккуратное оформление.</p><span class="price-from">от 800 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Окрашивание — 800 ₽</li></ul></div></div>
+  <div class="service-item"><div class="service-preview"><h3>Коррекция бровей</h3><p>Форма, чистые линии и баланс черт лица.</p><span class="price-from">от 350 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Коррекция — 350 ₽</li></ul></div></div>
+  <div class="service-item"><div class="service-preview"><h3>Ресницы</h3><p>Выразительный взгляд за счёт деликатного окрашивания.</p><span class="price-from">от 400 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Окрашивание ресниц — 400 ₽</li></ul></div></div>
+  <div class="service-item"><div class="service-preview"><h3>Ламинирование</h3><p>Долговременный эффект ухоженной формы.</p><span class="price-from">от 1300 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Ламинирование — 1300 ₽</li></ul></div></div>
+  <div class="service-item"><div class="service-preview"><h3>Укладка бровей</h3><p>Фиксация формы и визуальная плотность.</p><span class="price-from">от 1100 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Укладка бровей — 1100 ₽</li></ul></div></div>
+  <div class="service-item"><div class="service-preview"><h3>Усики</h3><p>Быстрая точечная зона.</p><span class="price-from">от 300 ₽</span><button class="toggle" type="button">Подробнее</button></div><div class="service-details"><ul><li>Усики — 300 ₽</li></ul></div></div>
+</section>
+
 <div class="sp-actions"><a href="index.html#services" class="sp-btn">← Все услуги</a><a href="https://wa.me/79279782022" class="sp-whatsapp" target="_blank">Записаться →</a></div>
 </div></main>
+<script>
+  document.querySelectorAll('.service-item .toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.service-item');
+      item.classList.toggle('open');
+      btn.textContent = item.classList.contains('open') ? 'Скрыть' : 'Подробнее';
+    });
+  });
+</script>
 </body></html>
