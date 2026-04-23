@@ -9,17 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .sp-wrap{max-width:900px;margin:0 auto;padding:0 var(--pad-x)} .sp-header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line)}
-    .sp-back{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:.5rem}.sp-logo-link{display:flex;align-items:center;gap:.6rem;text-decoration:none}.sp-logo-icon{width:28px}.sp-logo-name{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text)}.sp-hero{padding:clamp(4rem,10vw,7rem) 0 clamp(2rem,5vw,3rem)}.sp-num{display:block;font-family:var(--ff-body);font-size:.6rem;letter-spacing:.25em;color:var(--text-dim);margin-bottom:1rem}.sp-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(2.5rem,7vw,5.5rem);line-height:1.05;margin-bottom:.75rem}.sp-subtitle{font-family:var(--ff-body);font-size:clamp(.9rem,1.8vw,1.05rem);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
-    .sp-photo{width:100%;aspect-ratio:16/9;background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;border:1px dashed rgba(28,15,6,.15);margin-bottom:2.5rem}.sp-photo-icon{width:40px;height:40px;opacity:.25}.sp-photo-label{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim)}
-    .sp-desc{padding-bottom:2.5rem}.sp-desc p{font-family:var(--ff-body);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.75;color:var(--text-muted);max-width:620px}.sp-section{padding:2.5rem 0;border-top:1px solid var(--line)}
-    .sp-section-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem}
-    .price-table-wrap{margin-bottom:1.3rem}
-    .price-table-wrap h3{font-family:var(--ff-body);font-size:.84rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.55rem}
-    .price-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
-    .price-table td{padding:.65rem .75rem;border-top:1px solid var(--line);font-family:var(--ff-body);color:var(--text-muted)}
-    .price-table tr:first-child td{border-top:none}
-    .price-table td:last-child{text-align:right;color:var(--text)}
+    .sp-wrap{max-width:1020px;margin:0 auto;padding:0 var(--pad-x)} .sp-header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line)}
+    .sp-back{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;display:flex;align-items:center;gap:.5rem}.sp-logo-link{display:flex;align-items:center;gap:.6rem;text-decoration:none}.sp-logo-icon{width:28px}.sp-logo-name{font-family:var(--ff-body);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text)}
+    .sp-hero{padding:clamp(4rem,10vw,7rem) 0 clamp(2rem,5vw,3rem)}.sp-num{display:block;font-family:var(--ff-body);font-size:.6rem;letter-spacing:.25em;color:var(--text-dim);margin-bottom:1rem}.sp-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(2.5rem,7vw,5.5rem);line-height:1.05;margin-bottom:.75rem}.sp-subtitle{font-family:var(--ff-body);font-size:clamp(.9rem,1.8vw,1.05rem);letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+    .sp-photo{width:100%;aspect-ratio:16/9;background:var(--bg3);display:flex;align-items:center;justify-content:center;border:1px dashed rgba(28,15,6,.15);margin-bottom:2.2rem;color:var(--text-dim);font-family:var(--ff-body);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase}
+    .sp-desc{padding-bottom:2.4rem}.sp-desc p{font-family:var(--ff-body);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.75;color:var(--text-muted);max-width:680px}
+    .sp-section{padding:2.5rem 0;border-top:1px solid var(--line)}.sp-section-title{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1.25rem}
+    .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+    .price-card{border:1px solid var(--line);background:#fff;padding:1rem}
+    .price-card h3{font-family:var(--ff-body);font-size:.8rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.8rem}
+    .price-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+    .price-item{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.4rem;border-bottom:1px dashed rgba(28,15,6,.14);font-family:var(--ff-body);font-size:.9rem;color:var(--text-muted)}
+    .price-item strong{white-space:nowrap;color:var(--text);font-weight:500}
     .sp-actions{padding:3rem 0;border-top:1px solid var(--line)}.sp-btn,.sp-whatsapp{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2.25rem;font-family:var(--ff-body);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none}.sp-btn{border:1px solid rgba(28,15,6,.25);color:var(--text)}.sp-whatsapp{margin-left:1rem;background:var(--accent);color:var(--bg)}
     @media (max-width:600px){.sp-actions{display:flex;flex-direction:column;gap:.75rem}.sp-whatsapp{margin-left:0}}
   </style>
@@ -27,57 +28,25 @@
 <body>
 <header class="sp-header"><a href="index.html#services" class="sp-back"><svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1L1 5L5 9M1 5H13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Все услуги</a><a href="index.html" class="sp-logo-link"><img src="images/logo-icon-black.png" class="sp-logo-icon" alt=""><span class="sp-logo-name">Мне Красиво</span></a></header>
 <main><div class="sp-wrap">
-<div class="sp-hero"><span class="sp-num">002</span><h1 class="sp-title">Лазерная эпиляция</h1><p class="sp-subtitle">Гладкая кожа и аккуратный результат</p></div>
-<div class="sp-photo"><svg class="sp-photo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="7" width="34" height="26" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="31" cy="12" r="2" fill="currentColor" opacity="0.4"/></svg><span class="sp-photo-label">Фото скоро появится</span></div>
-<div class="sp-desc"><p>Комфортная процедура с деликатным подходом и прогнозируемым результатом. Ниже представлен прайс по зонам и комплексам.</p></div>
+  <div class="sp-hero"><span class="sp-num">002</span><h1 class="sp-title">Лазерная эпиляция</h1><p class="sp-subtitle">Гладкая кожа и аккуратный прогнозируемый результат</p></div>
+  <div class="sp-photo">Фото скоро появится</div>
+  <div class="sp-desc"><p>Деликатная лазерная эпиляция по зонам и в выгодных комплексах. Прайс структурирован по категориям для быстрого выбора нужного формата.</p></div>
 
-<section class="sp-section">
-  <h2 class="sp-section-title">Каталог процедур</h2>
+  <section class="sp-section"><h2 class="sp-section-title">Прайс</h2>
+    <div class="price-grid">
+      <article class="price-card"><h3>Тело</h3><ul class="price-list">
+        <li class="price-item"><span>Ноги полностью</span><strong>2790 ₽</strong></li><li class="price-item"><span>Руки полностью</span><strong>2290 ₽</strong></li><li class="price-item"><span>Бедра</span><strong>1990 ₽</strong></li><li class="price-item"><span>Голени</span><strong>1690 ₽</strong></li><li class="price-item"><span>Бикини глубокое</span><strong>1690 ₽</strong></li><li class="price-item"><span>Бикини классика</span><strong>1390 ₽</strong></li><li class="price-item"><span>Руки до/после локтя</span><strong>1390 ₽</strong></li><li class="price-item"><span>Ягодицы</span><strong>1390 ₽</strong></li><li class="price-item"><span>Межъягодичная впадина</span><strong>690 ₽</strong></li><li class="price-item"><span>Пальцы ног и стопы</span><strong>590 ₽</strong></li><li class="price-item"><span>Подмышки</span><strong>690 ₽</strong></li>
+      </ul></article>
+      <article class="price-card"><h3>Лицо</h3><ul class="price-list">
+        <li class="price-item"><span>Межбровье</span><strong>390 ₽</strong></li><li class="price-item"><span>Верхняя губа</span><strong>490 ₽</strong></li><li class="price-item"><span>Подбородок</span><strong>490 ₽</strong></li><li class="price-item"><span>Бакенбарды</span><strong>590 ₽</strong></li><li class="price-item"><span>Скулы</span><strong>490 ₽</strong></li><li class="price-item"><span>Шея</span><strong>1090 ₽</strong></li><li class="price-item"><span>Щеки</span><strong>890 ₽</strong></li><li class="price-item"><span>Лоб</span><strong>490 ₽</strong></li><li class="price-item"><span>Виски</span><strong>490 ₽</strong></li><li class="price-item"><span>Лицо (верхняя губа, подбородок, виски и шея)</span><strong>1590 ₽</strong></li>
+      </ul></article>
+      <article class="price-card"><h3>Комплексы</h3><ul class="price-list">
+        <li class="price-item"><span>Подмышки + глубокое бикини + ноги полностью</span><strong>4390 ₽</strong></li><li class="price-item"><span>Ноги полностью + глубокое бикини</span><strong>3990 ₽</strong></li><li class="price-item"><span>Голени + глубокое бикини</span><strong>2890 ₽</strong></li><li class="price-item"><span>Глубокое бикини + подмышки</span><strong>2190 ₽</strong></li>
+      </ul></article>
+    </div>
+  </section>
 
-  <div class="price-table-wrap">
-    <h3>Тело</h3>
-    <table class="price-table"><tbody>
-      <tr><td>Ноги</td><td>2790 ₽</td></tr>
-      <tr><td>Руки</td><td>2290 ₽</td></tr>
-      <tr><td>Бедра</td><td>1990 ₽</td></tr>
-      <tr><td>Голени</td><td>1690 ₽</td></tr>
-      <tr><td>Бикини глубокое</td><td>1690 ₽</td></tr>
-      <tr><td>Классика</td><td>1390 ₽</td></tr>
-      <tr><td>Руки до локтя</td><td>1390 ₽</td></tr>
-      <tr><td>Ягодицы</td><td>1390 ₽</td></tr>
-      <tr><td>Межъягодичная</td><td>690 ₽</td></tr>
-      <tr><td>Пальцы</td><td>590 ₽</td></tr>
-      <tr><td>Подмышки</td><td>690 ₽</td></tr>
-    </tbody></table>
-  </div>
-
-  <div class="price-table-wrap">
-    <h3>Комплексы</h3>
-    <table class="price-table"><tbody>
-      <tr><td>Подмышки + бикини + ноги</td><td>4390 ₽</td></tr>
-      <tr><td>Ноги + бикини</td><td>3990 ₽</td></tr>
-      <tr><td>Голени + бикини</td><td>2890 ₽</td></tr>
-      <tr><td>Бикини + подмышки</td><td>2190 ₽</td></tr>
-    </tbody></table>
-  </div>
-
-  <div class="price-table-wrap">
-    <h3>Лицо</h3>
-    <table class="price-table"><tbody>
-      <tr><td>Межбровье</td><td>390 ₽</td></tr>
-      <tr><td>Верхняя губа</td><td>490 ₽</td></tr>
-      <tr><td>Подбородок</td><td>490 ₽</td></tr>
-      <tr><td>Бакенбарды</td><td>590 ₽</td></tr>
-      <tr><td>Скулы</td><td>490 ₽</td></tr>
-      <tr><td>Шея</td><td>1090 ₽</td></tr>
-      <tr><td>Щеки</td><td>890 ₽</td></tr>
-      <tr><td>Лоб</td><td>490 ₽</td></tr>
-      <tr><td>Виски</td><td>490 ₽</td></tr>
-      <tr><td>Лицо комплекс</td><td>1590 ₽</td></tr>
-    </tbody></table>
-  </div>
-</section>
-
-<div class="sp-actions"><a href="index.html#services" class="sp-btn">← Все услуги</a><a href="https://wa.me/79279782022" class="sp-whatsapp" target="_blank">Записаться →</a></div>
+  <div class="sp-actions"><a href="index.html#services" class="sp-btn">← Все услуги</a><a href="https://wa.me/79279782022" class="sp-whatsapp" target="_blank">Записаться →</a></div>
 </div></main>
-</body></html>
+</body>
+</html>
